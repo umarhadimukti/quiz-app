@@ -1,0 +1,82 @@
+[
+    {
+        "question": "Kapan bahasa pemrograman Go pertama kali dirilis?",
+        "a": "2007",
+        "b": "2009",
+        "c": "2011",
+        "d": "2013",
+        "answer": "b"
+    },
+    {
+        "question": "Siapa yang mengembangkan bahasa pemrograman Go?",
+        "a": "Google",
+        "b": "Microsoft",
+        "c": "Apple",
+        "d": "IBM",
+        "answer": "a"
+    },
+    {
+        "question": "Apa ekstensi file untuk kode sumber Go?",
+        "a": ".go",
+        "b": ".golang",
+        "c": ".g",
+        "d": ".gcode",
+        "answer": "a"
+    },
+    {
+        "question": "Yang mana dari berikut ini adalah cara yang benar untuk mendeklarasikan variabel dalam Go?",
+        "a": "var x int = 10",
+        "b": "int x = 10",
+        "c": "let x = 10",
+        "d": "x := 10",
+        "answer": "d"
+    },
+    {
+        "question": "Bagaimana cara mendeklarasikan variabel di JavaScript sebelum ES6?",
+        "a": "let",
+        "b": "const",
+        "c": "var",
+        "d": "dim",
+        "answer": "c"
+    },
+    {
+        "question": "Yang mana dari berikut ini adalah cara yang benar untuk mendeklarasikan fungsi di JavaScript?",
+        "a": "function myFunction() {}",
+        "b": "func myFunction() {}",
+        "c": "def myFunction() {}",
+        "d": "myFunction function() {}",
+        "answer": "a"
+    },
+    {
+        "question": "Apa peran dari JSON.stringify() dalam JavaScript?",
+        "a": "Mengurai objek JavaScript menjadi string",
+        "b": "Mengurai string menjadi objek JavaScript",
+        "c": "Mengonversi objek JavaScript menjadi JSON string",
+        "d": "Mengonversi JSON string menjadi objek JavaScript",
+        "answer": "c"
+    },
+    {
+        "question": "Apa peran dari document.getElementById() dalam JavaScript?",
+        "a": "Mengambil elemen berdasarkan nama",
+        "b": "Mengambil elemen berdasarkan kelas",
+        "c": "Mengambil elemen berdasarkan ID",
+        "d": "Mengambil elemen berdasarkan tag",
+        "answer": "c"
+    },
+    {
+        "question": "Kapan bahasa pemrograman JavaScript pertama kali dirilis?",
+        "a": "1993",
+        "b": "1995",
+        "c": "1997",
+        "d": "1999",
+        "answer": "b"
+    },
+    {
+        "question": "Apa ekstensi file untuk kode sumber JavaScript?",
+        "a": ".jsx",
+        "b": ".cpp",
+        "c": ".java",
+        "d": ".js",
+        "answer": "d"
+    }
+]

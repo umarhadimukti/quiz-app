@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz App</title>
+    <link rel="stylesheet" href="./src/css/style.css">
+    <script src="./src/js/script.js" defer></script>
+</head>
+<body>
+    <main class="container">
+        <div class="quiz-box" id="quiz">
+            <div class="question-count">
+                <p class="count"><span id="question-count">5</span>/<strong id="question-total">10</strong></p>
+                <p class="question-title">Pertanyaan</p>
+            </div>
+            
+            <div class="question-box">
+                <p class="question-number">3</p>
+                <p class="question-text">Apa yang dimaksud dengan DB::table() di laravel lorem20</p>
+            </div>
+
+            <div class="answer-box">
+                <div class="section-1">
+                    <div class="wrapper-answer">
+                        <div class="answer-number">A</div>
+                        <input type="radio" name="option" id="first_answer" value="A" required hidden>
+                        <label for="first_answer" class="answer-label">Test 1 Lorem ipsum dolor sit amet consectetur adipisicing elit. At, dolores.</label>
+                    </div>
+                    <div class="wrapper-answer">
+                        <div class="answer-number">B</div>
+                        <input type="radio" name="option" id="second_answer" value="B" required hidden>
+                        <label for="second_answer" class="answer-label">Test 2</label>
+                    </div>
+                </div>
+                <div class="section-2">
+                    <div class="wrapper-answer">
+                        <div class="answer-number">C</div>
+                        <input type="radio" name="option" id="third_answer" value="C" required hidden>
+                        <label for="third_answer" class="answer-label">Test 3 Lorem ipsum dolor sit amet.</label>
+                    </div>
+                    <div class="wrapper-answer">
+                        <div class="answer-number">D</div>
+                        <input type="radio" name="option" id="fourth_answer" value="D" required hidden>
+                        <label for="fourth_answer" class="answer-label">Test 1</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="wrapper-button-next">
+                <button type="button" class="btn btn-next">Selanjutnya &rsaquo;</button>
+            </div>
+            <div class="wrapper-button-finish">
+                <button type="button" class="btn btn-finish">Selesai</button>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
