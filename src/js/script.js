@@ -1,3 +1,5 @@
+const menuContainer = document.querySelector('.menu-box');
+const buttonMain = document.querySelector('.btn-main');
 const quizContainer = document.getElementById('quiz');
 const questionCount = document.querySelector('#question-count');
 const questionTotal = document.querySelector('#question-total');
@@ -9,6 +11,13 @@ const buttonFinish = document.querySelector('.btn-finish');
 const inputs = document.querySelectorAll(".wrapper-answer input[type='radio']");
 const resultBox = document.querySelector('.result-box');
 const scoreElement = document.querySelector('span#score');
+
+
+buttonMain.addEventListener('click', function () {
+    menuContainer.style.display = 'none';
+    quizContainer.style.display = 'flex';
+});
+
 
 let currentQuestion = 0;
 let quizs = [];

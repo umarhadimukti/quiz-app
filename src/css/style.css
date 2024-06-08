@@ -24,8 +24,58 @@ main.container {
     align-items: center;
 }
 
+.menu-box {
+    margin: 0px auto;
+    padding: 10px;    
+}
+.menu-box h4 {
+    margin-bottom: 20px;
+}
+.menu-box h4 span#quiz-text {
+    font-size: 1.2rem;
+}
+.menu-box p {
+    font-size: .8rem;
+}
+.menu-box button {
+    position: relative;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    background-color: #333;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    z-index: 1;
+    margin-top: 10px;
+    width: 100%;
+    outline: none;
+    border: none;
+    background-color: rgb(13, 9, 75);
+    color: white;
+    font-family: 'Inconsolata';
+}
+.menu-box button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: #2d2bbb;
+    transition: width 0.4s ease;
+    z-index: -1;
+}
+.menu-box button:hover::before {
+    width: 100%;
+}
+
+.menu-box button:hover {
+    color: white; /* Ensure text color stays consistent */
+}
+
 .quiz-box {
-    display: flex;
+    display: none;
     flex-direction: column;
     gap: 5px;
     width: 100%;

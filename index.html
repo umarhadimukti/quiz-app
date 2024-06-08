@@ -9,6 +9,15 @@
 </head>
 <body>
     <main class="container">
+        <!-- tampilan awal -->
+        <div class="menu-box">
+            <h4>Selamat datang kembali di <span id="quiz-text">Quiz App</span>.</h4>
+            <p>Selamat mencoba, semoga beruntung!</p>
+            <button type="button" class="btn-main">Bermain</button>
+        </div>
+        <!-- tampilan awal -->
+
+        <!-- quiz -->
         <div class="quiz-box" id="quiz">
             <div class="question-count">
                 <p class="count"><span id="question-count">5</span>/<strong id="question-total">10</strong></p>
@@ -54,13 +63,16 @@
                 <button type="button" class="btn btn-finish">Selesai</button>
             </div>
         </div>
+        <!-- quiz -->
 
+        <!-- tampilan hasil -->
         <div class="result-box">
             <h2>Yay, selesai! Skor kamu <span id="score">9/10</span></h2>
             <div class="button-box">
                 <button type="button" onclick="location.reload()">Mulai ulang</button>
             </div>
         </div>
+        <!-- tampilan hasil -->
     </main>
 </body>
 </html>
