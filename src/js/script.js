@@ -7,6 +7,8 @@ const answerLabel = document.querySelectorAll('.wrapper-answer .answer-label')
 const buttonNext = document.querySelector('.btn-next');
 const buttonFinish = document.querySelector('.btn-finish');
 const inputs = document.querySelectorAll(".wrapper-answer input[type='radio']");
+const resultBox = document.querySelector('.result-box');
+const scoreElement = document.querySelector('span#score');
 
 let currentQuestion = 0;
 let quizs = [];
@@ -29,6 +31,7 @@ const loadDataQuiz = async (url) => {
     }
 }
 
+// load ui quiz
 const loadQuiz = async () => {
     try {
         await loadDataQuiz('../src/quiz.json');
@@ -60,13 +63,29 @@ const reset = () => {
     })
 }
 
+buttonFinish.addEventListener('click', function () {
+    let answer = getAnswerFromInput();
+
+    if (answer === quizs[currentQuestion]['answer'].toUpperCase()) {
+        result++;
+    }
+
+    currentQuestion++;
+
+    if (getAnswerFromInput()) {
+        quizContainer.style.display = 'none';
+        resultBox.style.display = 'block';
+        scoreElement.innerText = `${result}/${quizs.length}`;
+    }
+});
+
 buttonNext.addEventListener('click', async function () {
     await loadDataQuiz('../src/quiz.json');
 
     let answer = getAnswerFromInput();
 
     if (answer) {
-        if (answer === quizs[currentQuestion]['answer']) {
+        if (answer === quizs[currentQuestion]['answer'].toUpperCase()) {
             result++;
         }
 

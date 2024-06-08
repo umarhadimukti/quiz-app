@@ -168,7 +168,40 @@ main.container {
     cursor: pointer;
 }
 
-
+.result-box {
+    margin: 0px auto;
+    padding: 50px;
+    display: none;
+}
+.result-box span#score {
+    color: rgb(24, 14, 167);
+}
+.result-box .button-box {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+.result-box .button-box button {
+    padding: 10px 30px;
+    font-family: 'Inconsolata', sans-serif;
+    outline: none;
+    border: 2px solid rgb(59, 25, 180);
+    background-color: rgb(59, 25, 180);
+    color: white;
+    transition: all .2s ease-in-out;
+    border-radius: 2px;
+}
+.result-box .button-box button:hover {
+    cursor: pointer;
+    background-color: white;
+    color: black;
+    border: 2px solid rgb(59, 25, 180);
+    box-shadow: 0px 1px 5px 1px rgba(0,0,0,.3);
+}
+.result-box .button-box button:active {
+    background-color: rgb(23, 0, 128);
+    color: white;
+}
 
 /* mobile */
 @media only screen and (max-width: 678px) {
