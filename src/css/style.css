@@ -327,6 +327,12 @@ main.container {
 @media only screen and (max-width: 678px) {
     main.container {
         width: 95%;
+        padding: 20px 10px;
+    }
+
+    .result-box {
+        padding: 10px 5px;
+        text-align: center;
     }
 }
 
