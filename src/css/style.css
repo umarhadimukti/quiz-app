@@ -37,6 +37,10 @@ main.container {
 .menu-box p {
     font-size: .8rem;
 }
+.menu-box .wrapper-img {
+    display: flex;
+    justify-content: center;
+}
 .menu-box button {
     position: relative;
     padding: 10px 20px;
@@ -323,5 +327,17 @@ main.container {
 @media only screen and (max-width: 678px) {
     main.container {
         width: 95%;
+    }
+}
+
+@media only screen and (min-width: 1800px) {
+    .menu-box h4 {
+        font-size: 1.4rem;
+    }
+    .menu-box h4 span#quiz-text {
+        font-size: 1.4rem;
+    }
+    .menu-box p {
+        font-size: 1.1rem;
     }
 }
