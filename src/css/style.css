@@ -230,6 +230,7 @@ main.container {
     display: flex;
     justify-content: center;
     margin-top: 20px;
+    gap: 20px;
 }
 .result-box .button-box button {
     padding: 10px 30px;
@@ -249,6 +250,71 @@ main.container {
     box-shadow: 0px 1px 5px 1px rgba(0,0,0,.3);
 }
 .result-box .button-box button:active {
+    background-color: rgb(23, 0, 128);
+    color: white;
+}
+
+.result-box .button-box button.btn-answer {
+    background-color: rgb(255, 166, 50);
+    border: 2px solid orange;
+}
+
+.box-answer {
+    display: none;
+    margin: 0px auto;
+    height: 500px;
+    overflow-y: auto;
+    padding: 10px;
+    width: 100%;
+}
+.box-answer::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+/* Track scrollbar */
+.box-answer::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Warna track */
+}
+
+/* Thumb scrollbar */
+.box-answer::-webkit-scrollbar-thumb {
+    background: #c0c9ff; /* Warna thumb */
+    border-radius: 10px; /* Sudut melengkung thumb */
+}
+
+/* Thumb scrollbar saat hover */
+.box-answer::-webkit-scrollbar-thumb:hover {
+    background: #3222e2; /* Warna thumb saat hover */
+    cursor: pointer;
+}
+.box-answer .wrapper-answer {
+    margin-bottom: 10px;
+}
+
+.box-answer .wrapper-reload {
+    display: flex;
+    justify-content: center;
+}
+.button-reload {
+    width: 300px;
+    margin-top: 20px;
+    padding: 10px 30px;
+    font-family: 'Inconsolata', sans-serif;
+    outline: none;
+    border: 2px solid rgb(1, 0, 3);
+    background-color: rgb(9, 2, 36);
+    color: white;
+    transition: all .2s ease-in-out;
+    border-radius: 2px;
+}
+.button-reload:hover {
+    cursor: pointer;
+    background-color: white;
+    color: black;
+    border: 2px solid rgb(59, 25, 180);
+    box-shadow: 0px 1px 5px 1px rgba(0,0,0,.3);
+}
+.button-reload:active {
     background-color: rgb(23, 0, 128);
     color: white;
 }
