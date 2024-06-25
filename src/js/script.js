@@ -15,18 +15,44 @@ const buttonAnswer = document.querySelector('.btn-answer');
 const answerBox = document.querySelector('.box-answer');
 const containerAnswer = document.querySelector('.box-answer .container-answer');
 
+// initialize supabase
+const { createClient } = supabase;
+const SUPABASE_URL = 'https://cfuvqhrofsadhsjtwspa.supabase.co';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNmdXZxaHJvZnNhZGhzanR3c3BhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTkyNDM0OTAsImV4cCI6MjAzNDgxOTQ5MH0.zx040IRAVKxbG0OZ4oiyf1xaVygsMpTwFLz6gnM95Mc';
 
-buttonMain.addEventListener('click', function () {
-    menuContainer.style.display = 'none';
-    quizContainer.style.display = 'flex';
-});
+const supabaseClient = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-
+// initialize quiz variable
 let currentQuestion = 0;
 let quizs = [];
 let userAnswers = [];
 let wrongAnswers = [];
 let result = 0;
+
+const getDataFromSupa = async () => {
+    const { data:dataQuiz, error, status } = await supabaseClient.from('quizs').select('*');
+    
+    if (error || status !== 200) {
+        console.error({ status, error, message: 'terjadi kesalahan.' });
+    }
+
+    quizs = dataQuiz;
+
+    shuffleQuiz(quizs);
+};
+
+// when buttonMain onclick
+buttonMain.addEventListener('click', function () {
+    menuContainer.style.display = 'none';
+    quizContainer.style.display = 'flex';
+});
+
+const shuffleQuiz = (quizs) => {
+    for (let i = quizs.length-1; i >= 0; i--) {
+        const j = Math.floor(Math.random() * (i+1));
+        [quizs[i], quizs[j] = quizs[j], quizs[i]];
+    }
+}
 
 // reset inputs field
 const reset = () => {
@@ -60,7 +86,7 @@ buttonAnswer.addEventListener('click', function () {
 buttonFinish.addEventListener('click', function () {
     let answer = getAnswerFromInput();
 
-    if (answer === quizs[currentQuestion]['answer'].toUpperCase()) {
+    if (answer === quizs[currentQuestion]['correct'].toUpperCase()) {
         result++;
     }
 
@@ -75,12 +101,12 @@ buttonFinish.addEventListener('click', function () {
 
 // when user click next button
 buttonNext.addEventListener('click', async function () {
-    await loadDataQuiz('../src/quiz.json');
+    await getDataFromSupa();
 
     let answer = getAnswerFromInput();
 
     if (answer) {
-        if (answer === quizs[currentQuestion]['answer'].toUpperCase()) {
+        if (answer === quizs[currentQuestion]['correct'].toUpperCase()) {
             result++;
         }
 
@@ -94,7 +120,7 @@ buttonNext.addEventListener('click', async function () {
 
 // displaying correct answers
 const displayCorrectAnswer = async () => {
-    await loadDataQuiz('../src/quiz.json');
+    await getDataFromSupa();
 
     quizs.forEach((quiz, i)=> {
         const wrapperAnswerEl = document.createElement('div');
@@ -107,13 +133,13 @@ const displayCorrectAnswer = async () => {
         const userAnswerEl = document.createElement('p');
         userAnswerEl.textContent = `Jawaban kamu: ${userAnswers[i].toUpperCase()}`;
         userAnswerEl.style.color = 'black';
-        if (userAnswers[i] !== quiz['answer'].toUpperCase()) {
+        if (userAnswers[i] !== quiz['correct'].toUpperCase()) {
             userAnswerEl.style.color = 'red';
         }
         wrapperAnswerEl.appendChild(userAnswerEl);
 
         const correctAnswerEl = document.createElement('p');
-        correctAnswerEl.textContent = `Jawaban benar: ${quiz.answer.toUpperCase()}`;
+        correctAnswerEl.textContent = `Jawaban benar: ${quiz.correct.toUpperCase()}`;
         correctAnswerEl.style.color = 'green';
         wrapperAnswerEl.appendChild(correctAnswerEl);
     
@@ -122,35 +148,19 @@ const displayCorrectAnswer = async () => {
     });
 };
 
-// load data quiz from json
-const loadDataQuiz = async (url) => {
-    try {
-        const responseQuiz = await fetch(url);
-        if (!responseQuiz.ok) {
-            throw new Error('Terdapat Kesalahan: ' + responseQuiz.statusText);
-        }
-    
-        const data = await responseQuiz.json();
-        quizs = data;
-
-    } catch (err) {
-        console.error('Gagal mendapatkan data:', err);
-        throw err;
-    }
-};
-
 // load ui quiz
 const loadQuiz = async () => {
     try {
-        await loadDataQuiz('../src/quiz.json');
+        // await loadDataQuiz('../src/quiz.json');
+        await getDataFromSupa();
         questionCount.innerText = `${currentQuestion+1}`;
         questionTotal.innerText = `${quizs.length}`;
         questionNumber.innerText = `${currentQuestion+1}.`;
         questionText.innerText = `${quizs[currentQuestion]['question']}`;
-        answerLabel[0].innerText = `${quizs[currentQuestion]['a']}`;
-        answerLabel[1].innerText = `${quizs[currentQuestion]['b']}`;
-        answerLabel[2].innerText = `${quizs[currentQuestion]['c']}`;
-        answerLabel[3].innerText = `${quizs[currentQuestion]['d']}`;
+        answerLabel[0].innerText = `${quizs[currentQuestion]['answerA']}`;
+        answerLabel[1].innerText = `${quizs[currentQuestion]['answerB']}`;
+        answerLabel[2].innerText = `${quizs[currentQuestion]['answerC']}`;
+        answerLabel[3].innerText = `${quizs[currentQuestion]['answerD']}`;
 
         reset();
 
